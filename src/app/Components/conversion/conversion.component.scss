@@ -1,0 +1,40 @@
+.center {
+    border: 1px solid;
+    margin: auto;
+    width: 30%;
+    padding: 10px;
+  }
+
+input{
+    margin: auto;
+    display: block;
+}
+
+button{
+    border-radius: 4px;
+}
+
+.btn-group button {
+    background-color: gray; 
+    border: 1px;
+    color: white; 
+    padding: 5px 5px; 
+    cursor: pointer; 
+    float: left; 
+  }
+  
+  .btn-group button:not(:last-child) {
+    border-right: none; 
+  }
+  
+
+  .btn-group:after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+
+  .btn-group button:hover {
+    background-color: black;
+  }

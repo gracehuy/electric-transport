@@ -1,0 +1,60 @@
+<div *ngIf="getTimeOrNot">
+<div class="center">
+    <div> 
+        <mat-card style="width: 500px; box-shadow: none;
+                     padding: 0;
+                     border-radius: 4px;">
+            <mat-card-content class="card-center">
+            <img [src]="vehicle.image" style="border-radius: 4px;">
+            <h2 style="text-align: center;" class="card-text">{{vehicle.type}}</h2>
+            <h2 style="text-align: center;" class="card-text">Distance: {{distance}} mile(s)</h2>
+            <h2 style="text-align: center;" class="card-text">Time: {{vehicle.range | limit: vehicle.speed : distance}}</h2>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div> 
+
+ <h2 style="color: blue; margin-left: 40pc; margin-top: 10pt; margin-bottom: -2pt;">Other Transports</h2>
+<div style="margin-left: 39pc;" *ngFor="let vehicle of others">
+        <div> 
+            <mat-card style="height: 80px; width: 500px; box-shadow: none; margin-bottom: -10pt;">
+            <mat-card-content class="card-center">
+                <h2 style="font-weight: lighter; text-align: start; padding: -5pt; margin-bottom: -8pt;" class="card-text">{{vehicle.type}}</h2>
+                <h2 style="font-weight: lighter; text-align: start;" class="card-text">Time: {{vehicle.range | limit: vehicle.speed : distance}}</h2>
+            </mat-card-content>
+     </mat-card>
+    </div>
+</div>
+</div>
+
+
+<div *ngIf="!getTimeOrNot">
+    <div class="center">
+        <div> 
+            <mat-card style="width: 500px; box-shadow: none;
+                         padding: 0;
+                         border-radius: 4px;">
+                <mat-card-content class="card-center">
+                <img [src]="vehicle.image" style="border-radius: 4px;">
+                <h2 style="text-align: center;" class="card-text">{{vehicle.type}}</h2>
+                <h2 style="text-align: center;" class="card-text">Time: {{inputTime}} min(s)</h2>
+                <h2 style="text-align: center;" class="card-text">Distance: {{distanceResult | timelimit: vehicle.range }}</h2>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div> 
+    
+     <h2 style="color: blue; margin-left: 40pc; margin-top: 10pt; margin-bottom: -2pt;">Other Transports</h2>
+    <div style="margin-left: 39pc;" *ngFor="let vehicle of others">
+            <div> 
+                <mat-card style="width: 500px; box-shadow: none; margin-bottom: -10pt;">
+                <mat-card-content class="card-center">
+                    <img [src]="vehicle.image" style="border-radius: 4px; margin-right: 135pt;">
+                    <h2 style="font-weight: lighter; text-align: start; padding: -5pt; margin-bottom: -8pt;" class="card-text">{{vehicle.type}}</h2>
+                    <h2 style="font-weight: lighter; text-align: start;" class="card-text">Distance: {{inputTime*vehicle.speed/60 | timelimit: vehicle.range}}</h2>
+                </mat-card-content>
+         </mat-card>
+        </div>
+    </div>
+    </div>
+

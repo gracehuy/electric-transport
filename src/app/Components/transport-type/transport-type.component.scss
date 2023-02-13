@@ -1,0 +1,41 @@
+.center {
+    margin: auto;
+    width: 30%;
+    border: 1px #4a4a49;
+    padding: 7px;
+  }
+
+
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width:  300px;
+    height: 280px;
+    object-fit: fill;
+  }
+
+  card-center {
+    margin: auto;
+    width: 70%;
+    border: 1px #4a4a49;
+    padding: 10px;
+  }
+
+.child {
+    background: orange;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -50px 0 0 -50px;
+  }
+
+  .parent {
+    background: gray;
+    height: 300px;
+    width: 300px;
+    position: relative;
+  }
+  

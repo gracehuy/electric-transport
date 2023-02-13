@@ -1,0 +1,13 @@
+<div class="center"  *ngFor="let vehicle of vehicles">
+    <div class="center"> 
+        <mat-card style="width: 500px; border: 1px grey; margin-bottom: -16px;
+                        padding: 0;border-radius: 4px; box-shadow: none;">
+            <mat-card-content class="card-center">
+                <h2 style="text-align: center;" class="card-text">{{vehicle.type}}</h2>
+                <h2 style="font-weight: lighter; margin-left: 50pt;" class="card-text">Speed : {{vehicle.speed}} mph</h2>
+                <h2 style="font-weight: lighter; margin-left: 50pt;" class="card-text">Range : {{vehicle.range}} mile(s)</h2>
+                <img style="border-radius: 4px;" [src]="vehicle.image">
+            </mat-card-content>
+     </mat-card>
+    </div>
+</div>

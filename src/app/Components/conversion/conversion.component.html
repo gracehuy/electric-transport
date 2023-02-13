@@ -1,0 +1,55 @@
+<h1 style="text-align: center; font-weight: bold;">Transportation Conversion App</h1>
+
+<div class="btn-group" style="  margin: 0;
+margin-top: 10pt;
+left: 50%;
+-ms-transform: translate(-50%, -50%);
+transform: translate(-50%, -50%);">
+    <button style="width: 70pt; text-align: center; margin-right: 10pt;" (click)="chooseDistance()">Get Time</button>
+    <button style="width: 70pt; text-align: center;" (click)="chooseTime()">Get Distance</button>
+  </div>
+
+<div *ngIf="showDistance">
+    <h2 style="text-align: center;">Enter Distance:</h2>
+    <input type="number" placeholder="Mile(s)" [(ngModel)]="distance">
+
+    <h2 style="text-align: center; margin-top: 10pt;">Transportation Type:</h2>
+    <mat-form-field style="width: 14pc; margin: auto; display: block;" appearance="fill">
+        <mat-label>Select</mat-label>
+        <mat-select [(ngModel)]="selectedValue" name="vehicle" (selectionChange)="getType()">
+            <mat-option>None</mat-option>
+          <mat-option *ngFor="let vehicle of vehicles" [value]="vehicle">
+            {{vehicle.type}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <h2 style="text-align: center;">You selected: {{type}}</h2>
+      <h2 style="text-align: center;">Distance To Travel: {{distance}} mile(s)</h2>
+
+    <button (click)="convert()" style="margin: auto; display: block; margin-top: 20pt;">Convert To Time</button>
+
+    <p *ngIf="!valid" style="text-align: center; color: red;">Please enter correct values for both Distance and Transport Type</p>
+</div>
+
+<div *ngIf="showTime">
+    <h2 style="text-align: center;">Enter Time:</h2>
+    <input type="number" placeholder="Min(s)" [(ngModel)]="timeInput">
+
+    <h2 style="text-align: center; margin-top: 10pt;">Transportation Type:</h2>
+    <mat-form-field style="width: 14pc; margin: auto; display: block;" appearance="fill">
+        <mat-label>Select</mat-label>
+        <mat-select [(ngModel)]="selectedValue" name="vehicle" (selectionChange)="getType()">
+            <mat-option>None</mat-option>
+          <mat-option *ngFor="let vehicle of vehicles" [value]="vehicle">
+            {{vehicle.type}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <h2 style="text-align: center;">You selected: {{type}}</h2>
+      <h2 style="text-align: center;">Time given: {{timeInput}} min(s)</h2>
+
+    <button (click)="convertToDistance()" style="margin: auto; display: block; margin-top: 20pt;">Convert To Distance</button>
+
+    <p *ngIf="!validTime" style="text-align: center; color: red;">Please enter correct values for both Time and Transport Type</p>
+</div>
+
